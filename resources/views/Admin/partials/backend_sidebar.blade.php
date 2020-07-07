@@ -1,7 +1,7 @@
 <div class="ecaps-sidemenu-area">
     <!-- Desktop Logo -->
     <div class="ecaps-logo">
-        <a href="{{url('admin')}}"><img class="desktop-logo" src="{{asset('backend_asstes/img/core-img/logo.pn')}}g" alt="Desktop Logo"> <img class="small-logo" src="img/core-img/small-logo.png" alt="Mobile Logo"></a>
+        <a href="{{url('admin')}}"><img class="desktop-logo" src="{{asset('backend_asstes/img/core-img/logo.pn')}}g" alt="Desktop Logo"> <img class="small-logo" src="{{asset('backend_asstes/img/core-img/small-logo.png')}}" alt="Mobile Logo"></a>
     </div>
 
     <!-- Side Nav -->
@@ -11,6 +11,7 @@
             <!-- Sidebar Menu -->
             <nav>
                 <ul class="sidebar-menu" data-widget="tree">
+                <li><a href="{{url('/')}}"><i class='bx bx-home-heart'></i><span>Visit Site</span></a></li>
                 <li class="{{ (request()->is('admin')) ? 'active' : '' }}"><a href="{{url('admin')}}"><i class='bx bx-home-heart'></i><span>Dashboard</span></a></li>
                     <li class="treeview {{ (request()->is('post')) ? 'active' : '' }}">
                         <a href="javascript:void(0)"><i class='fa fa-plus'></i> <span>Posts</span> <i class="fa fa-angle-right"></i></a>

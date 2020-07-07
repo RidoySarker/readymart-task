@@ -57,18 +57,18 @@ class PostController extends Controller
             Toastr::warning('Validation Failed', 'Warning', ["positionClass" => "toast-bottom-right"]);
             return back()->withErrors($validateData)->withInput($request_data);
         }
+
+        if ($request->post_type == 2 && filter_var($request->post_video, FILTER_VALIDATE_URL)) { 
+            $v_url = explode("=", $request->post_video);
+            $request_data['post_video'] = $v_url[1];
+        }
+
         $image = $request->file('post_image');
         $path = "images/post";
         $new_name = $image->getClientOriginalName();
-        $image = $request->file('post_image')->move($path, $new_name);
+        $request_data['post_image'] = $request->file('post_image')->move($path, $new_name);
 
-        $post_model->post_title = $request->post_title;
-        $post_model->post_type = $request->post_type;
-        $post_model->post_section = $request->post_section;
-        $post_model->post_image = $image;
-        $post_model->post_content = $request->post_content;
-        $post_model->post_video = $request->post_video;
-        $post_model->save();
+        $post_model->fill($request_data)->save();
         Toastr::success('Post Added Successfully', 'Success', ["positionClass" => "toast-bottom-right"]);
         return back();
     }

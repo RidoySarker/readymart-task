@@ -2,7 +2,7 @@
     <div class="left-side-content-area d-flex align-items-center">
         <!-- Mobile Logo -->
         <div class="mobile-logo mr-3 mr-sm-4">
-            <a href="index.html"><img src="{{asset('backend_asstes/img/core-img/small-logo.png')}}" alt="Mobile Logo"></a>
+            <a href="index.html"><h1>Ridoy</h1></a>
         </div>
 
         <!-- Triggers -->
