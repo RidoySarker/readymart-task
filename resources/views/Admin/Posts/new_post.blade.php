@@ -37,8 +37,8 @@
                         <p class="text-danger">{{$errors->first('post_image')}}</p>
                      </div>
                      
-                     <div id="post_video"  class="form-group" style="@if(!$errors->first('post_video')) display: none @endif">
-                        <label for="video" style="">Video</label>
+                     <div id="post_video"  class="form-group" >
+                        <label for="video">Video</label>
                         <input id="video" value="{{old('post_video')}}" class="form-control" type="url" name="post_video">
                         <p class="text-danger">{{$errors->first('post_video')}}</p>
                      </div>
@@ -71,16 +71,15 @@
          if ($('#post_type').val() == 2) 
           {
               $('#post_video').show();
+          }else{
+             $('#post_video').hide();
           }
         $(document).on("change", "#post_type", function () {
             var PostType = $(this).val();
-            if (PostType == 1) {
-                $("#post_image").show();
-                $("#post_video").hide();
-                
-            } else {
+            if (PostType == 2) {
                 $("#post_video").show();
-               
+            }else{
+              $("#post_video").hide();
             }
         })
     })
